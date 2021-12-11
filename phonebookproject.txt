@@ -1,0 +1,152 @@
+package phone;
+import java.util.Scanner;
+
+
+public class PhoneBookAssignment {
+
+	public PhoneBookAssignment() {
+		//default constructor
+	}
+	
+	public static void run() {
+		// create scanner obj
+		Scanner sc = new Scanner(System.in);
+		// print welcome message
+		System.out.println("Welcome to the FohnBuk");
+
+		while (true) {
+			int option = readOption(sc);
+			if (option == -1) {
+				System.out.println("Session ended");
+				System.exit(0);
+			}
+
+			modifyString(option);
+		}
+	}
+	
+	public static void displayMenu() {
+		// print selection menu
+		System.out.println("Please select an option from the menu or enter -1 to exit");
+		System.out.println("*********************************************************");
+		System.out.println("1: Last Name" 
+		+ "\t\t2: First Name"
+		+ "\n3: Address" 
+		+ "\t4: Number 'xx'"
+		+ "\n5: Repeated String");
+	}
+	public static void displaySubMenu(int opt) {
+		// print selection menu
+		System.out.println("Please enter the numbered test case to run or enter -1 to exit");
+		System.out.println("*********************************************************");
+	
+		switch(opt) {
+		case 1 : System.out.println("You selected #1, A and B \n");
+		// Question 1
+				System.out.println("1) sumLimit(2, 3)");
+				System.out.println("2) sumLimit(8, 3)");
+				System.out.println("3) sumLimit(8, 1)");
+				break;
+				
+		case 2 : System.out.println("You selected #2, Squirrel Play\n");
+		// Question 2
+		System.out.println("1) squirrelPlay(70, false)");
+		System.out.println("2) squirrelPlay(95, false)");
+		System.out.println("3) squirrelPlay(95, true)");
+		
+		
+		break;
+		
+		case 3 : System.out.println("You selected #3, Lottery Ticket\n");
+		// Question 3
+		System.out.println("1) greenTicket(1, 2, 3)");
+		System.out.println("2) greenTicket(2, 2, 2)");
+		System.out.println("3) greenTicket(1, 1, 2)");
+		
+		break;
+		
+		case 4 : System.out.println("You selected #4, Finding 'xx'\n");
+		// Question 4
+		System.out.println("1) "+ "abcxx");
+		System.out.println("2) "+ "xxx");
+		System.out.println("3) "+ "xxxx");
+		
+		break;
+		
+		case 5 : System.out.println("You selected #5, Repeated String\n");
+		// Question 5
+		System.out.println("1) ("+ "Hi" + ", 2)");
+		System.out.println("2) ("+ "Hi" + ", 3)");
+		System.out.println("3) ("+ "Hi" + ", 1)");
+		
+		break;
+		
+		default : System.out.println("Invalid input");
+		break;
+		
+	}
+}
+	public static int readOption(Scanner sc) {
+		int choice =-2;
+		String option = null;
+		
+
+		while(choice <-1 || choice >5) {
+			//print selection menu
+			displayMenu();
+		
+		//input validation
+			try {
+				option = sc.next();
+				choice = Integer.parseInt(option); //pull value from user input and convert to int
+				if (choice <= 0 || choice > 5) {
+					if(choice==-1) {
+						return choice;
+					}
+					System.out.println(choice + " is an invalid choice");
+				}
+			}catch(Exception e) {
+				System.out.println(option + " is an invalid input.");
+			}
+
+		}
+		
+		return choice;
+	}
+	
+	
+	public static boolean modifyString(int key) {
+		//local variable declaration for testing
+		String test1 = "How are you";
+		
+		
+		switch(key) {
+		case 1 : System.out.println("You selected #1\n"); 
+		displaySubMenu(key);
+		break;
+		
+		
+		case 2 : System.out.println("You selected #2\n");
+		displaySubMenu(key);
+		break;
+		
+		case 3 : System.out.println("You selected #3\n");
+		displaySubMenu(key);
+		break;
+		
+		case 4 : System.out.println("You selected #4\n");
+		displaySubMenu(key);
+		break;
+		
+		case 5 : System.out.println("You selected #5\n");
+		displaySubMenu(key);
+		break;
+//		case 4 -> System.out.println("You selected " + key + ".\n\t "+ test1 
+//				+  " -> "+ reverseStrTokens(test1) +"\n");
+		
+		}
+		
+	return false;
+	}
+	
+}
